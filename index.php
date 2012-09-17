@@ -1,6 +1,6 @@
 <?php
 //This is free software and bla-bla-bla
-$ver = "0.0.12-aplha";
+$ver = "0.0.13-alpha";
 
 // Huge piece of HTML
 $l = '<?xml version="1.0" encoding="utf-8"?>
@@ -33,7 +33,7 @@ while ($d = readdir($dir)) {
 		($d != 'some_dir') && //list of excluded dirs
 		($d != 'report') && 
 		($d != 'log')*/) { 
-			$l = $l . "<tr><td class=\"n\"><b><a href=\"$d\">$d</a>/</td><td class=\"m\">".date("F d Y H:i:s",@fileatime($d))."</td><td class=\"s\"></td><td class=\"t\">Directory</td></b></tr>";
+			$l = $l . "<tr><td class=\"n\"><img src=\"./folder.ico\" height=\"12\"><b><a href=\"$d\">$d</a>/</td><td class=\"m\">".date("F d Y H:i:s",@fileatime($d))."</td><td class=\"s\"></td><td class=\"t\">Directory</td></b></tr>";
 	}
 }
 
@@ -43,7 +43,8 @@ while ($d = readdir($dir)) {
 	if (is_file($d) && 
 		($d != 'index.php') &&  //list of excluded files
 		($d != 'index.html') && 
-		($d != 'favicon.ico')) { 
+		($d != 'favicon.ico') &&
+		($d != 'folder.ico')) { 
 			$l = $l . "<tr><td class=\"n\"><a href=\"$d\">$d</a></td><td class=\"m\">".date("F d Y H:i:s",@fileatime($d))."</td><td class=\"s\">".@filesize($d)."</td><td class=\"t\">File</td></tr>";
 	}
 }
