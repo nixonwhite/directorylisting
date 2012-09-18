@@ -1,6 +1,6 @@
 <?php
 //This is free software and bla-bla-bla
-$ver = "0.0.13-alpha";
+$ver = "0.0.13.1-alpha";
 
 // Huge piece of HTML
 $l = '<?xml version="1.0" encoding="utf-8"?>
@@ -27,29 +27,28 @@ div.foot { font: 90% monospace; color: #787878; padding-top: 4px;}
 <thead><tr><th class="n">Name</th><th class="m">Last Modified</th><th class="s">Size</th><th class="t">Type</th></tr></thead><tbody>';
 
 //directories
-$dir=opendir(".");
+$dir = opendir(".");
 while ($d = readdir($dir)) {
 	if (!is_file($d) /*&& 
 		($d != 'some_dir') && //list of excluded dirs
 		($d != 'report') && 
 		($d != 'log')*/) { 
-			$l = $l . "<tr><td class=\"n\"><img src=\"./folder.ico\" height=\"12\"><b><a href=\"$d\">$d</a>/</td><td class=\"m\">".date("F d Y H:i:s",@fileatime($d))."</td><td class=\"s\"></td><td class=\"t\">Directory</td></b></tr>";
+			$l = $l."<tr><td class=\"n\"><img src=\"./folder.ico\" height=\"12\">&nbsp;<b><a href=\"$d\">$d</a>/</td><td class=\"m\">".date("F d Y H:i:s",@fileatime($d))."</td><td class=\"s\"></td><td class=\"t\">Directory</td></b></tr>";
 	}
 }
 
 //files
-$dir=opendir(".");
+$dir = opendir(".");
 while ($d = readdir($dir)) {
 	if (is_file($d) && 
 		($d != 'index.php') &&  //list of excluded files
 		($d != 'index.html') && 
 		($d != 'favicon.ico') &&
 		($d != 'folder.ico')) { 
-			$l = $l . "<tr><td class=\"n\"><a href=\"$d\">$d</a></td><td class=\"m\">".date("F d Y H:i:s",@fileatime($d))."</td><td class=\"s\">".@filesize($d)."</td><td class=\"t\">File</td></tr>";
+			$l = $l."<tr><td class=\"n\"><a href=\"$d\">$d</a></td><td class=\"m\">".date("F d Y H:i:s",@fileatime($d))."</td><td class=\"s\">".@filesize($d)."</td><td class=\"t\">File</td></tr>";
 	}
 }
 
-$l = $l . '</tbody></table></div><div class="foot"></div><p>Directory listing v.' . $ver .'</p></body></html>';
-
+$l = $l.'</tbody></table></div><div class="foot"></div><p>Directory listing v.'.$ver.'</p></body></html>';
 echo $l;
 ?>
