@@ -1,13 +1,12 @@
 <?php
-//This is free software and bla-bla-bla
-$ver = "0.0.13.2-alpha";
+$ver = "0.0.13.3-alpha";
 
 // Huge piece of HTML
 $l = "<?xml version=\"1.0\" encoding=\"utf-8\"?>
 <!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.1//EN\" \"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd\">
 <html xmlns=\"http://www.w3.org/1999/xhtml\" xml:lang=\"en\">
 <head>
-<title>Directory listing v.".$ver."</title>
+<title>Directory listing</title>
 <style type=\"text/css\">
 a, a:active {text-decoration: none; color: blue;}
 a:visited {color: #48468F;}
